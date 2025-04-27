@@ -15,7 +15,7 @@ import AuthContextProvider, { AuthUserContext } from './Component/AuthContext/Au
 import ProtectedRouting from './Component/ProtectedRouting/ProtectedRouting.jsx';
 import DetalisProduct from './Component/DetalisProduct/DetalisProduct.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import ProductBC from './Component/ProductBC/ProductBC.JSX';
+import ProductBC from './Component/ProductBC/ProductBC.jsx';
 import ProductBrand from './Component/ProductBC/ProductBrand.jsx';
 import CartContextProvider from './Component/AuthContext/CartContextProvider.jsx';
 import { ToastContainer } from 'react-toastify';
