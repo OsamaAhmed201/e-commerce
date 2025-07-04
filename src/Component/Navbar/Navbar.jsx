@@ -3,18 +3,21 @@ import logo from '../../assets/imgs/freshcart-logo.svg'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { AuthUserContext } from './../AuthContext/AuthContextProvider';
 import { CartContext } from '../AuthContext/CartContextProvider.jsx';
+import imguser from '../../assets/imgs/def_person.webp'
 
 export default function Navbar() {
   let { numCart } = useContext(CartContext)
-  let navgate = useNavigate()
-  let { token, setToken } = useContext(AuthUserContext)
+  let navigate = useNavigate()
+  let { token, setToken, logData } = useContext(AuthUserContext)
+  
   const [isOpen, setIsOpen] = useState(false)
   function logOut() {
     localStorage.removeItem("token")
     setToken(null)
-    navgate("/login")
+    navigate("/login")
   }
-
+  let userName = (logData)
+  
   return (
     <>
       <header className="fexed bg-gray-50 shadow inset-x-0 top-0 z-50 capitalize">
@@ -38,18 +41,77 @@ export default function Navbar() {
             <NavLink to="products" className="text-sm/6 font-semibold p-2 rounded hover:bg-green-300 text-gray-500 hover:text-green-600">Products</NavLink>
             <NavLink to="categories" className="text-sm/6 font-semibold p-2 rounded hover:bg-green-300 text-gray-500 hover:text-green-600">Categories</NavLink>
             <NavLink to="brands" className="text-sm/6 font-semibold rounded p-2  hover:bg-green-300 text-gray-500 hover:text-green-600">Brands</NavLink>
-           
+
           </div> : ""}
 
           <div className="hidden lg:flex lg:flex-1  lg:justify-end">
             {token ? <ul className='flex justify-center items-center'>
+
+              <div>
+                <button
+                  id="dropdownDefaultButton"
+                  data-dropdown-toggle="dropdown"
+                  className="text-block    focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center "
+                  type="button"
+                >
+                  <svg
+                    className="w-2.5 h-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown menu */}
+                <div
+                  id="dropdown"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700"
+                >
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownDefaultButton"
+                  >
+                    <li>
+                      <li><Link to={'/profile'}  className="dropdown-item" ><i class="fa-solid my-3 fa-user-tie ms-5 text-indigo-700"></i> Profile</Link></li>
+                    </li>
+                    <li>
+                      <li><Link className="dropdown-item" ><i class="fa-solid fa-unlock ms-5 my-3 text-green-700"></i> ChangePassword</Link></li>
+                    </li>
+                    <li>
+                      <li><Link onClick={() => { logOut() }} className="dropdown-item" ><i className="fa-solid fa-right-from-bracket text-red-600 my-3 ps-5"></i> Logout</Link></li>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+
+
               <li className='relative'>
                 <Link to={"/cart"}>
                   <i class="fa-solid fa-cart-shopping "></i>
                   <p className='absolute bg-red-600 text-white font-sans  rounded-full top-0 end-0 -translate-y-4'>{numCart}</p>
                 </Link>
               </li>
-              <li><span onClick={logOut} className="text-sm/6 cursor-pointer mx-3 font-semibold text-gray-600 hover:text-green-600">LogOut </span></li>
+              <span className=" mx-3 position-relative d-flex align-items-center">
+                <div>
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+              </span>
+              <img src={imguser} className='img_nav  mx-2' alt="img_user" />
+
+              <span className="flex flex-col justify-center items-center ">
+                <span>{userName?.name}</span>
+                <span className="admin tex">{userName?.role}</span>
+              </span>
 
             </ul> : <>
               <NavLink to="login" className="text-sm/6 mx-3 font-semibold text-gray-600 hover:text-green-600">Login </NavLink>
@@ -94,7 +156,19 @@ export default function Navbar() {
                       </Link>
                     </li>
 
-                    <li className='mt-2'><span onClick={logOut} className="text-sm/6 cursor-pointer mx-3 font-semibold text-gray-600 hover:text-green-600">LogOut </span></li>
+                    <span className=" mx-3 position-relative d-flex align-items-center">
+                      <div>
+                        <i className="fa-solid fa-bell"></i>
+                        <div className="dot"></div>
+                      </div>
+                    </span>
+                    <img src={imguser} className='img_nav  mx-2' alt="" />
+
+                    <span className="flex flex-col justify-center ">
+                      <span>{userName?.name}</span>
+                      <span className="admin tex">{userName?.role}</span>
+                    </span>
+
 
                   </ul> : <>
                     <NavLink to="signup" className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-600 hover:bg-gray-50 hover:text-green-600">Register</NavLink>

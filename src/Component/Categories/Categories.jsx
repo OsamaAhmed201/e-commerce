@@ -13,7 +13,7 @@ export default function Categories() {
   return (
 
     <>
-      <div className="flex flex-wrap py-8">
+      <div className="flex flex-wrap py-8 container mx-auto">
         {data?.data?.data?.map((e) => {
 
           return (

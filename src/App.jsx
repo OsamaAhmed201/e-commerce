@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useLocation } from 'react-router-dom'
 import Layout from './Component/Layout/Layout';
 import Home from './Component/Home/Home';
 import Products from './Component/Products/Products';
@@ -21,10 +21,13 @@ import CartContextProvider from './Component/AuthContext/CartContextProvider.jsx
 import { ToastContainer } from 'react-toastify';
 import ShippingDetails from './Component/ShippingDetails/ShippingDetails.jsx';
 import AllorderUser from './Component/AllorderUser/AllorderUser.jsx';
+import Footer from './Component/Footer/Footer.jsx';
+import ProfileData from './Component/ProfileData/ProfileData.jsx';
 
 
 
 export default function App() {
+
   let routs = createBrowserRouter([{
     path: "",
     element: <Layout />,
@@ -45,24 +48,28 @@ export default function App() {
       { path: "detalisProduct/:id", element: <ProtectedRouting><DetalisProduct /></ProtectedRouting> },
       { path: "shippingdetails/:id", element: <ProtectedRouting><ShippingDetails /></ProtectedRouting> },
       { path: "/allorders", element: <ProtectedRouting><AllorderUser /></ProtectedRouting> },
+      { path: "/profile", element: <ProtectedRouting><ProfileData/></ProtectedRouting> },
+     
       { path: "*", element: <Notfound /> },
 
     ]
   }])
- 
-  let client=new QueryClient()
+
+  let client = new QueryClient()
 
   return (
     <>
+
       <QueryClientProvider client={client}>
         <AuthContextProvider>
           <CartContextProvider>
-          <RouterProvider router={routs} ></RouterProvider>
-          <ToastContainer />
+            <RouterProvider router={routs} ></RouterProvider>
+
+            <ToastContainer />
           </CartContextProvider>
         </AuthContextProvider>
       </QueryClientProvider>
-     
+
     </>
   )
 }

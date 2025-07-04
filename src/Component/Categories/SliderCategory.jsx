@@ -56,18 +56,20 @@ export default function SliderCategory() {
   };
   return (
     <>
-      <Slider {...settings} className='cursor-pointer'>
-        {data?.data?.data.map((e) => {
-          return (
-            <div key={e._id} className='text-center p-3 rounded-sm'>
-              <Link to={`/ProductBC/${e._id}`}>
-                <img src={e.image} className='w-full h-48 rounded ' alt="" />
-                <p className='text-active mt-1 font-bold'>{e.name}</p>
-              </Link>
-            </div>
-          )
-        })}
-      </Slider>
+      <div className="container mx-auto">
+        <Slider {...settings} className='cursor-pointer'>
+          {data?.data?.data.map((e) => {
+            return (
+              <div key={e._id} className='text-center p-3 rounded-sm'>
+                <Link to={`/ProductBC/${e._id}`}>
+                  <img src={e.image} className='w-full h-48 rounded ' alt="" />
+                  <p className='text-active mt-1 font-bold'>{e.name}</p>
+                </Link>
+              </div>
+            )
+          })}
+        </Slider>
+      </div>
     </>
   )
 }

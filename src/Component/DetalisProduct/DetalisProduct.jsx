@@ -45,7 +45,8 @@ export default function DetalisProduct() {
         <>
             {loding ? <div className="flex justify-center items-center h-screen bg-slate-100  ">
                 <div class="loader"></div>
-            </div> : <div className="flex flex-wrap ">
+            </div> : 
+            <div className="flex flex-wrap py-14 container mx-auto ">
 
                 <div className="lg:w-3/12 md:w-3/12 w-full  p-5 ">
                     <div className="w-full">

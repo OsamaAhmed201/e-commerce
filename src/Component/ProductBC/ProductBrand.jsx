@@ -43,7 +43,7 @@ export default function ProductBrand() {
   return (
     <>
       {
-        <div className=" bg-slate-100 py-5">
+        <div className=" bg-slate-100 py-5 container mx-auto">
           <div className=" flex flex-wrap  mx-auto  ">
             {data?.data.data.map((product) => {
               let { title, imageCover, category, ratingsAverage, _id, price } = product
