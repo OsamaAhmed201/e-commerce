@@ -48,7 +48,7 @@ export default function App() {
       { path: "Productbrand/:id", element: <ProtectedRouting><ProductBrand /></ProtectedRouting> },
       { path: "detalisProduct/:id", element: <ProtectedRouting><DetalisProduct /></ProtectedRouting> },
       { path: "shippingdetails/:id", element: <ProtectedRouting><ShippingDetails /></ProtectedRouting> },
-      { path: "/allorders", element: <ProtectedRouting><AllorderUser /></ProtectedRouting> },
+      { path: "allorders", element: <ProtectedRouting><AllorderUser /></ProtectedRouting> },
       { path: "/changePassword", element: <ProtectedRouting><ChangePassword/></ProtectedRouting> },
       { path: "/favsProduct", element: <ProtectedRouting><FavsProduct/></ProtectedRouting> },
     
