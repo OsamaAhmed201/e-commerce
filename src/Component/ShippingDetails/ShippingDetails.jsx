@@ -4,7 +4,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import * as Yup from 'yup'
 export default function ShippingDetails() {
-    let {id} = useParams()
+    let { id } = useParams()
     let headerOption = {
         headers: {
             token: localStorage.getItem("token")
@@ -30,12 +30,21 @@ export default function ShippingDetails() {
     function SippingApi(value) {
         let data = {
             shippingAddress: value
-        }
-        axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-931i.vercel.app/`, data, headerOption).then((req) => {
-            window.location.href = req.data.session.url;
-        })
+        };
 
+        axios.post(
+            `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-931i.vercel.app/allorders`,
+            data,
+            headerOption
+        )
+            .then((req) => {
+                window.location.href = req.data.session.url;
+            })
+            .catch((err) => {
+                console.error(err);
+            });
     }
+
 
     return (
         <>
