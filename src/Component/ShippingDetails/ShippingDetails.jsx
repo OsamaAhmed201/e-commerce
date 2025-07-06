@@ -31,7 +31,7 @@ export default function ShippingDetails() {
         let data = {
             shippingAddress: value
         }
-        axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=http://localhost:5173`, data, headerOption).then((req) => {
+        axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-931i.vercel.app/`, data, headerOption).then((req) => {
             window.location.href = req.data.session.url;
         })
 
