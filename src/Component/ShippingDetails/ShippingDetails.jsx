@@ -33,7 +33,7 @@ export default function ShippingDetails() {
         };
 
         axios.post(
-            `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-931i.vercel.app/allorders`,
+            `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://e-commerce-931i.vercel.app`,
             data,
             headerOption
         )
