@@ -1,115 +1,158 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --main-color: #0aad0a;
-  --light-color: #f0f3f2;
-  --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
-  --font-family: 'Encode Sans Expanded', sans-serif;
-  --rating-color: #ffc908;
+    --main-color: #0aad0a;
+    --light-color: #f0f3f2;
+    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --font-family: 'Encode Sans Expanded', sans-serif;
+    --rating-color: #ffc908;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: #f0f3f2;
+    font-family: var(--font-family);
+    background-color: #f0f3f2;
 }
 
+
 /* HTML: <div class="loader"></div> */
+
 .loader {
-  width: fit-content;
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 30px;
-  background: radial-gradient(circle closest-side, #000 94%, #0000) right/calc(200% - 1em) 100%;
-  animation: l24 1s infinite alternate linear;
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    background: radial-gradient(circle closest-side, #000 94%, #0000) right/calc(200% - 1em) 100%;
+    animation: l24 1s infinite alternate linear;
 }
 
 .loader::before {
-  content: "Loading...";
-  line-height: 1em;
-  color: #00000000;
-  background: inherit;
-  background-image: radial-gradient(circle closest-side, #0aad0a 94%, #000);
-  -webkit-background-clip: text;
-  background-clip: text;
+    content: "Loading...";
+    line-height: 1em;
+    color: #00000000;
+    background: inherit;
+    background-image: radial-gradient(circle closest-side, #0aad0a 94%, #000);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 @keyframes l24 {
-  100% {
-    background-position: left
-  }
+    100% {
+        background-position: left
+    }
 }
 
 .fa-cart-shopping {
-  font-size: 26px;
+    font-size: 26px;
 }
 
 .fa-cc-visa {
-  font-size: larger;
+    font-size: larger;
 }
-
-
 
 .main_sliderImg {
-  width: 100% !important;
-  background-image: url(./assets/imgs/header.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+    width: 100% !important;
+    background-image: url(./assets/imgs/header.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
+
+@media (max-width: 768px) {
+    .main_sliderImg {
+        height: 50vh;
+        background-position: top;
+        background-size: 100% auto;
+    }
+}
+
 
 /* //footer */
 
-
 .input_search {
-  background-color: #eaebec;
-  color: white;
-  border-radius: 10px;
-  margin-top: 50px;
+    background-color: #eaebec;
+    color: white;
+    border-radius: 10px;
+    margin-top: 50px;
 }
 
 .input_search::placeholder {
-  color: rgb(145, 131, 131);
+    color: rgb(145, 131, 131);
 }
 
 .input_search:focus {
-  background-color: #eaebec;
-  color: rgb(40, 33, 33);
-  font-weight: 600;
-  border: none !important;
-  box-shadow: none !important;
+    background-color: #eaebec;
+    color: rgb(40, 33, 33);
+    font-weight: 600;
+    border: none !important;
+    box-shadow: none !important;
 }
-.allLogin,.allSignUp,.fogetPass,.updatePass{
-  background-image: url(./assets/imgs/d.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
+
+.allLogin,
+.allSignUp,
+.fogetPass,
+.updatePass {
+    background-image: url(./assets/imgs/d.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
-.allLogin h2,.allSignUp h2,.fogetPass h2,.updatePass h2{
-  font-size: 32px;
-  font-weight:900;
+
+.allLogin h2,
+.allSignUp h2,
+.fogetPass h2,
+.updatePass h2 {
+    font-size: 32px;
+    font-weight: 900;
 }
+
 .img_nav {
-  width: 40px;
-  border: #00924e 1px solid;
-  border-radius: 50%;
+    width: 40px;
+    border: #00924e 1px solid;
+    border-radius: 50%;
 }
+
 .admin {
-  font-size: 14px;
-  font-weight: 100;
-}
-.fa-heart{
-  font-size: 25px;
+    font-size: 14px;
+    font-weight: 100;
 }
 
+.fa-heart {
+    font-size: 25px;
+}
+
+.bg-blue-700 {
+    background-color: none !important;
+    color: #00924e !important;
+}
 
 
-.bg-blue-700{
-  background-color:none !important;
-  color: #00924e !important;
+/* //change password */
+
+.btn_change {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #00924e;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 0px;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+
+.btn_change:hover {
+    background-color: #15603d;
+}
+
+.changePassword h2 {
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
 }

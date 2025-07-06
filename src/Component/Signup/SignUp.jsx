@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup'
 
 export default function SignUp() {
@@ -35,31 +36,25 @@ export default function SignUp() {
 
 
   async function regestApi(data) {
-
-    await axios.post(`${BaseUrl}/api/v1/auth/signup`, data).catch((err) => {
-      console.log(err.response.data.message);
+    setbtnLoding(true)
+    try {
+    let respnse = await axios.post(`${BaseUrl}/api/v1/auth/signup`, data)
+    toast.success(respnse.data.message||"success register")
+    navigate('/login')
+    }
+    catch (err) {
       setErrors(err.response.data.message)
+     
+    }
+    finally {
       setbtnLoding(false)
-    })
-      .then((req) => {
-        console.log(req.data.message);
-        if (req.data.message == "success") {
-          setbtnLoding(false)
-          navigate('/login')
-        }
-
-      })
-
-
-
+    }
   }
 
 
 
   return (
     <>
-
-
       <div className="allSignUp py-8">  <h2 className='text-center  font-extrabold text-green-800 text-lg mt-5 mb-5'>Resgister Now</h2>
 
         {errors ? <div class="flex w-6/12 mx-auto items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">

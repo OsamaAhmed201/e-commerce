@@ -7,14 +7,14 @@ export default function AuthContextProvider({ children }) {
   let [token, setToken] = useState(null)
   let [logData, setLogData] = useState(null)
 
-  useEffect(() => {
-    let TokenStorge = localStorage.getItem("token")
-    if (TokenStorge) {
-      setToken(TokenStorge)
-      setLogData(jwtDecode(TokenStorge))
-    }
-    
-  }, [])
+useEffect(() => {
+  let TokenStorge = localStorage.getItem("token");
+  if (TokenStorge) {
+    setToken(TokenStorge);
+    setLogData(jwtDecode(TokenStorge));
+  }
+}, []);
+
   
   const updateAuth = (newToken) => {
     localStorage.setItem("token", newToken);

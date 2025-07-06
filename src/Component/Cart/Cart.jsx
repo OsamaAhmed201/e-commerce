@@ -5,23 +5,23 @@ import { Link, Navigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify'
 
 export default function Cart() {
-  let { deleteUserCart, clearUserCart, setNumcart, countCart } = useContext(CartContext)
+  let { deleteUserCart, clearUserCart, setNumcart, countCart,getUserCart } = useContext(CartContext)
   const [CartProduct, setCartProduct] = useState(null);
   const [loding, setLoding] = useState(true);
   const [countloding, setcountLoding] = useState(false);
 
 
-  const { getUserCart } = useContext(CartContext);
+  
 
   function CartData() {
     setLoding(true)
     getUserCart()
       .then((req) => {
         setCartProduct(req.data?.data);
-        console.log(req.data?.data);
+        
       })
       .catch((err) => {
-        console.log(err);
+      toast.error(err.response.data.message)
       })
       .finally(() => {
         setLoding(false)

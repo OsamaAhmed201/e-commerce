@@ -21,8 +21,9 @@ import CartContextProvider from './Component/AuthContext/CartContextProvider.jsx
 import { ToastContainer } from 'react-toastify';
 import ShippingDetails from './Component/ShippingDetails/ShippingDetails.jsx';
 import AllorderUser from './Component/AllorderUser/AllorderUser.jsx';
-import Footer from './Component/Footer/Footer.jsx';
-import ProfileData from './Component/ProfileData/ProfileData.jsx';
+import ChangePassword from './Component/ChangePassword/ChangePassword.jsx';
+import FavsContextProvider from './Component/AuthContext/FavsContextProvider.jsx';
+import FavsProduct from './Component/FavsProduct/FavsProduct.jsx';
 
 
 
@@ -48,8 +49,10 @@ export default function App() {
       { path: "detalisProduct/:id", element: <ProtectedRouting><DetalisProduct /></ProtectedRouting> },
       { path: "shippingdetails/:id", element: <ProtectedRouting><ShippingDetails /></ProtectedRouting> },
       { path: "/allorders", element: <ProtectedRouting><AllorderUser /></ProtectedRouting> },
-      { path: "/profile", element: <ProtectedRouting><ProfileData/></ProtectedRouting> },
-     
+      { path: "/changePassword", element: <ProtectedRouting><ChangePassword/></ProtectedRouting> },
+      { path: "/favsProduct", element: <ProtectedRouting><FavsProduct/></ProtectedRouting> },
+    
+      
       { path: "*", element: <Notfound /> },
 
     ]
@@ -62,11 +65,13 @@ export default function App() {
 
       <QueryClientProvider client={client}>
         <AuthContextProvider>
+          <FavsContextProvider>
           <CartContextProvider>
+            
             <RouterProvider router={routs} ></RouterProvider>
-
-            <ToastContainer />
+            <ToastContainer autoClose={2000}/>
           </CartContextProvider>
+          </FavsContextProvider>
         </AuthContextProvider>
       </QueryClientProvider>
 
