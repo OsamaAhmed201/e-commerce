@@ -6,7 +6,7 @@ export default function WhatsappChat() {
   const [message, setMessage] = useState("");
   const [showForm, setShowForm] = useState(false);
 
-  const phoneNumber = "+20 11 58206098";
+  const phoneNumber = "+20 1127141362";
 
   const handleClick = () => {
     setShowForm(!showForm);
