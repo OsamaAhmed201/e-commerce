@@ -8,6 +8,7 @@ export default function Layout() {
   const location = useLocation();
   const hideFooterRoutes = ['/login', '/signup', '/forgetpassword', '/updatepass'];
 
+  const isLoggedIn = Boolean(localStorage.getItem("token"));
 
   const shouldHideFooter = hideFooterRoutes.includes(location.pathname);
   return (
@@ -16,7 +17,7 @@ export default function Layout() {
       <div >
         <Outlet />
       </div>
-      <WhatsappChat />
+      {isLoggedIn && <WhatsappChat />}
       {!shouldHideFooter && <Footer />}
 
     </>
