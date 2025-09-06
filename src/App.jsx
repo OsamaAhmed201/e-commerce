@@ -24,6 +24,7 @@ import AllorderUser from './Component/AllorderUser/AllorderUser.jsx';
 import ChangePassword from './Component/ChangePassword/ChangePassword.jsx';
 import FavsContextProvider from './Component/AuthContext/FavsContextProvider.jsx';
 import FavsProduct from './Component/FavsProduct/FavsProduct.jsx';
+import Rooms from './Component/Brands/Rooms.jsx';
 
 
 
@@ -49,11 +50,10 @@ export default function App() {
       { path: "detalisProduct/:id", element: <ProtectedRouting><DetalisProduct /></ProtectedRouting> },
       { path: "shippingdetails/:id", element: <ProtectedRouting><ShippingDetails /></ProtectedRouting> },
       { path: "allorders", element: <ProtectedRouting><AllorderUser /> </ProtectedRouting> },
-      { path: "/changePassword", element: <ProtectedRouting><ChangePassword/></ProtectedRouting> },
-      { path: "/favsProduct", element: <ProtectedRouting><FavsProduct/></ProtectedRouting> },
-    
-      
-      { path: "*", element: <Notfound /> },
+      { path: "/changePassword", element: <ProtectedRouting><ChangePassword /></ProtectedRouting> },
+      { path: "/favsProduct", element: <ProtectedRouting><FavsProduct /></ProtectedRouting> },
+      { path: "/rooms", element: <ProtectedRouting><Rooms /></ProtectedRouting> },
+   
 
     ]
   }])
@@ -66,11 +66,11 @@ export default function App() {
       <QueryClientProvider client={client}>
         <AuthContextProvider>
           <FavsContextProvider>
-          <CartContextProvider>
-            
-            <RouterProvider router={routs} ></RouterProvider>
-            <ToastContainer autoClose={2000}/>
-          </CartContextProvider>
+            <CartContextProvider>
+
+              <RouterProvider router={routs} ></RouterProvider>
+              <ToastContainer autoClose={2000} />
+            </CartContextProvider>
           </FavsContextProvider>
         </AuthContextProvider>
       </QueryClientProvider>
