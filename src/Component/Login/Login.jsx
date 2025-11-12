@@ -71,6 +71,7 @@ export default function Login() {
             <div className="mb-5">
               <label htmlFor="email" className="block mb-1 text-sm font-bold text-gray-900 dark:text-white ">Your email</label>
               <input
+              placeholder='osamaahmeddev71@gmail.com'
                 value={loginForm.values.email}
                 onChange={loginForm.handleChange}
                 onBlur={loginForm.handleBlur}
@@ -85,6 +86,7 @@ export default function Login() {
             <div className="mb-2">
               <label htmlFor="password" className="block mb-1 text-sm  font-bold text-gray-900 dark:text-white "> Password</label>
               <input
+              placeholder='!Abc111'
                 onChange={loginForm.handleChange}
                 onBlur={loginForm.handleBlur}
                 value={loginForm.values.password}
